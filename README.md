@@ -1,0 +1,2 @@
+# GhostifyDPI
+UI for GoodbyeDPI
