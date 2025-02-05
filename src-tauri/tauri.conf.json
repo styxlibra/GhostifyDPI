@@ -1,0 +1,67 @@
+{
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist",
+    "devUrl": "http://localhost:1420"
+  },
+  "bundle": {
+    "active": true,
+    "targets": "msi",
+    "icon": [
+      "icons/generated/icon.ico"
+    ],
+    "windows": {
+      "webviewInstallMode": {
+        "type": "embedBootstrapper"
+      },
+      "wix": {
+        "language": ["en-US", "ru-RU"],
+        "fragmentPaths": ["./windows/fragments/copy.wxs"],
+        "featureRefs": ["MainApplication"],
+        "componentRefs": [
+          "x86_goodbyedpi.exe",
+          "x86_WinDivert.dll",
+          "x86_WinDivert32.sys",
+          "x86_WinDivert64.sys",
+          "x86_64_goodbyedpi.exe",
+          "x86_64_WinDivert.dll",
+          "x86_64_WinDivert64.sys",
+          "licenses_getline.txt",
+          "licenses_goodbyedpi.txt",
+          "licenses_uthash.txt",
+          "licenses_windivert.txt"
+        ]
+      }
+    }
+  },
+  "productName": "Ghostify DPI",
+  "version": "0.1.0",
+  "identifier": "com.ghostifydpi",
+  "plugins": {},
+  "app": {
+    "windows": [
+      {
+        "title": "Ghostify DPI",
+        "width": 300,
+        "height": 400,
+        "resizable": false,
+        "maximizable": false,
+        "visible": false
+      }
+    ],
+    "security": {
+      "csp": null,
+      "capabilities": [
+        {
+          "identifier": "main-capability",
+          "description": "Main application capability used for all windows",
+          "windows": ["*"],
+          "permissions": [
+            "core:default"
+          ]
+        }
+      ]
+    }
+  }
+}

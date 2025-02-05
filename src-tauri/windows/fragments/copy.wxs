@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR">
+        <Directory Id="gdpi_x86" Name="x86"/>
+        <Directory Id="gdpi_x86_64" Name="x86_64"/>
+        <Directory Id="gdpi_licenses" Name="licenses"/>
+    </DirectoryRef>
+    <DirectoryRef Id="gdpi_x86">
+        <Component Id="x86_goodbyedpi.exe" Guid="*">
+            <File Id="x86_goodbyedpi.exe" Source="$(var.SourceDir)\..\x86\goodbyedpi.exe" KeyPath="yes" Checksum="yes"/>
+        </Component>
+        <Component Id="x86_WinDivert.dll" Guid="*">
+            <File Id="x86_WinDivert.dll" Source="$(var.SourceDir)\..\x86\WinDivert.dll" KeyPath="yes"/>
+        </Component>
+        <Component Id="x86_WinDivert32.sys" Guid="*">
+            <File Id="x86_WinDivert32.sys" Source="$(var.SourceDir)\..\x86\WinDivert32.sys" KeyPath="yes"/>
+        </Component>
+        <Component Id="x86_WinDivert64.sys" Guid="*">
+            <File Id="x86_WinDivert64.sys" Source="$(var.SourceDir)\..\x86\WinDivert64.sys" KeyPath="yes"/>
+        </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="gdpi_x86_64">
+        <Component Id="x86_64_goodbyedpi.exe" Guid="*">
+            <File Id="x86_64_goodbyedpi.exe" Source="$(var.SourceDir)\..\x86_64\goodbyedpi.exe" KeyPath="yes" Checksum="yes"/>
+        </Component>
+        <Component Id="x86_64_WinDivert.dll" Guid="*">
+            <File Id="x86_64_WinDivert.dll" Source="$(var.SourceDir)\..\x86_64\WinDivert.dll" KeyPath="yes"/>
+        </Component>
+        <Component Id="x86_64_WinDivert64.sys" Guid="*">
+            <File Id="x86_64_WinDivert64.sys" Source="$(var.SourceDir)\..\x86_64\WinDivert64.sys" KeyPath="yes"/>
+        </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="gdpi_licenses">
+        <Component Id="licenses_getline.txt" Guid="*">
+            <File Id="licenses_getline.txt" Source="$(var.SourceDir)\..\licenses\LICENSE-getline.txt" KeyPath="yes"/>
+        </Component>
+        <Component Id="licenses_goodbyedpi.txt" Guid="*">
+            <File Id="licenses_goodbyedpi.txt" Source="$(var.SourceDir)\..\licenses\LICENSE-goodbyedpi.txt" KeyPath="yes"/>
+        </Component>
+        <Component Id="licenses_uthash.txt" Guid="*">
+            <File Id="licenses_uthash.txt" Source="$(var.SourceDir)\..\licenses\LICENSE-uthash.txt" KeyPath="yes"/>
+        </Component>
+        <Component Id="licenses_windivert.txt" Guid="*">
+            <File Id="licenses_windivert.txt" Source="$(var.SourceDir)\..\licenses\LICENSE-windivert.txt" KeyPath="yes"/>
+        </Component>
+    </DirectoryRef>
+    <Feature Id="MainApplication" Title="Ghostify DPI" Level="1">
+        <ComponentRef Id="x86_goodbyedpi.exe"/>
+        <ComponentRef Id="x86_WinDivert.dll"/>
+        <ComponentRef Id="x86_WinDivert32.sys"/>
+        <ComponentRef Id="x86_WinDivert64.sys"/>
+        <ComponentRef Id="x86_64_goodbyedpi.exe"/>
+        <ComponentRef Id="x86_64_WinDivert.dll"/>
+        <ComponentRef Id="x86_64_WinDivert64.sys"/>
+        <ComponentRef Id="licenses_getline.txt"/>
+        <ComponentRef Id="licenses_goodbyedpi.txt"/>
+        <ComponentRef Id="licenses_uthash.txt"/>
+        <ComponentRef Id="licenses_windivert.txt"/>
+    </Feature>
+  </Fragment>
+</Wix>

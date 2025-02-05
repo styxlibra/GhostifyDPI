@@ -1,0 +1,32 @@
+{
+  "name": "ghostifydpi",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "tauri": "tauri",
+    "download": "powershell -command \"rm -r -fo goodbyedpi; curl https://github.com/ValdikSS/GoodbyeDPI/releases/download/0.2.3rc3/goodbyedpi-0.2.3rc3-2.zip -o goodbyedpi.zip; Expand-Archive goodbyedpi.zip -DestinationPath .; mv goodbyedpi-0.2.3rc3-2 goodbyedpi; rm goodbyedpi.zip\"",
+    "clean": "powershell -command \"rm -r -fo package-lock.json, dist, node_modules, public/generated, src-tauri/Cargo.lock, src-tauri/target, src-tauri/gen, src-tauri/icons/generated\"",
+    "launch": "npm install && set \"RUST_BACKTRACE=full\" && set \"CARGO_PROFILE_DEV_BUILD_OVERRIDE_DEBUG=true\" && npm run tauri dev",
+    "release": "npm install && npm run tauri build"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "2.2.0",
+    "events": "3.3.0",
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "2.2.7",
+    "@types/events": "3.0.3",
+    "@types/react": "19.0.8",
+    "@types/react-dom": "19.0.3",
+    "@vitejs/plugin-react": "4.3.4",
+    "less": "4.2.2",
+    "typescript": "5.7.3",
+    "vite": "6.0.11"
+  }
+}

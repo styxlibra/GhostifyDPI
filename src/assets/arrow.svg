@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="50" height="11" stroke="#fff" stroke-width="0.5" fill="none">
+  <g clip-path="url(#clip0)">
+    <path d="M0 5.5 50 5.5" shape-rendering="crispEdges"/>
+    <path d="M0 5.5 25 2"/>
+    <path d="M0 5.5 25 9"/>
+    <path d="M25 2 25 9" shape-rendering="crispEdges"/>
+    <path d="M38.5 5.5C38.5 2.73849 40.9624 0.5 44 0.5 47.0376 0.5 49.5 2.73849 49.5 5.5 49.5 8.26151 47.0376 10.5 44 10.5 40.9624 10.5 38.5 8.26151 38.5 5.5Z"/>
+    <path d="M32.5 5.5C32.5 4.67156 33.3955 4 34.5 4 35.6046 4 36.5 4.67156 36.5 5.5 36.5 6.32847 35.6046 7 34.5 7 33.3955 7 32.5 6.32847 32.5 5.5Z"/>
+  </g>
+</svg>

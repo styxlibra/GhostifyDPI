@@ -1,0 +1,33 @@
+.status-title {
+  font-size: 20px;
+}
+
+.description-container {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+hr {
+  height: 12px;
+  background: linear-gradient(0deg,
+    #00000000 calc(50%),
+    #ffffffff 0 calc(50% + 0.5px),
+    #00000000 0 100%,
+  );
+  margin: 5px -30px 5px -30px;
+  border: none;
+  position: relative;
+  &:before {
+    content: url('../assets/arrow.svg');
+    position: absolute;
+    left: 0;
+    top: -6px;
+  }
+  &:after {
+    content: url('../assets/arrow.svg');
+    transform: scale(-1, 1);
+    position: absolute;
+    right: 0;
+    top: -6px;
+  }
+}

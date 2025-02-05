@@ -1,0 +1,116 @@
+.activate-button {
+  width: 100px;
+  height: 100px;
+  margin: 0;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  background-size: 94px 94px;
+  background-position: 1px 1px;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  border-width: 2px;
+  border-style: solid;
+  & .power-logo {
+    width: 30px;
+    height: 30px;
+  }
+  &.Starting, &.Stopping {
+    cursor: not-allowed;
+  }
+}
+
+.shadow(@color) {
+  @shadowColor: fade(@color, 80%);
+  box-shadow: 0 0 5px @shadowColor;
+  &:hover {
+    box-shadow: 0 0 20px @shadowColor;
+  }
+  &:active {
+    box-shadow: 0 0 40px @shadowColor;
+  }
+}
+
+.background(@color, @overlay) {
+  @overlayColor: fade(@color, @overlay);
+  background-color: @color;
+  background-image: linear-gradient(@overlayColor, @overlayColor), url('../assets/moon.svg');
+}
+
+.transition(@colorSpeed) {
+  transition: transform 1s 0.25s, border-color @colorSpeed, background-color @colorSpeed, box-shadow 1s;
+  & .power-logo {
+    transition: filter @colorSpeed;
+  }
+}
+
+.rotate(@default, @hover, @active) {
+  transform: rotate(@default);
+  &:hover {
+    transform: rotate(@hover);
+  }
+  &:active {
+    transform: rotate(@active);
+  }
+}
+
+.logo-filter(@filter) {
+  & .power-logo {
+    filter: @filter;
+  }
+}
+
+.activate-button {
+  @stoppedBackground: #d3d3d3;
+  @stoppedBackgroundHover: #eaeaea;
+  @stoppedBorder: #6d6d6d;
+  @stoppedBorderHover: #a1a1a1;
+  @stoppedFilter: invert(30%);
+  @stoppedFilterHover: invert(50%);
+  & {
+    .shadow(@stoppedBackground);
+    .background(@stoppedBackground, 0%);
+    .transition(0.25s);
+    .rotate(0deg, 20deg, 40deg);
+    .logo-filter(@stoppedFilter);
+    border-color: @stoppedBorder;
+    &:hover {
+      .background(@stoppedBackgroundHover, 20%);
+      .logo-filter(@stoppedFilterHover);
+      border-color: @stoppedBorderHover;
+    }
+  }
+  @progressBackground: #ffe087;
+  @progressBorder: #b39d5f;
+  @progressFilter: invert(71%) sepia(21%) saturate(793%) hue-rotate(7deg) brightness(67%) contrast(83%);
+  &.Starting, &.Stopping {
+    .shadow(@progressBackground);
+    .background(@progressBackground, 50%);
+    .transition(0s);
+    .rotate(60deg, 60deg, 60deg);
+    .logo-filter(@progressFilter);
+    border-color: @progressBorder;
+  }
+  @startedBackground: #acdf54;
+  @startedBackgroundHover: #b4ff89;
+  @startedBorder: #143302;
+  @startedBorderHover: #31730b;
+  @startedFilter: invert(14%) sepia(11%) saturate(7405%) hue-rotate(66deg) brightness(98%) contrast(98%);
+  @startedFilterHover: invert(30%) sepia(62%) saturate(1226%) hue-rotate(63deg) brightness(98%) contrast(91%);
+  &.Started {
+    .shadow(@startedBackground);
+    .background(@startedBackground, 20%);
+    .transition(0.25s);
+    .rotate(360deg, 340deg, 320deg);
+    .logo-filter(@startedFilter);
+    border-color: @startedBorder;
+    &:hover {
+      .background(@startedBackgroundHover, 50%);
+      .logo-filter(@startedFilterHover);
+      border-color: @startedBorderHover;
+    }
+  }
+}
